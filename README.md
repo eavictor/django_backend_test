@@ -1,20 +1,22 @@
-# Django backend test
+# Django Backend Test (with PyMySQL)
 For testing if the database connector works with Django ORM.
 
 ### 1. Modify database connection.
 ```
 (1) Open /django_backend_test/django_backend_test/settings.py
-(2) Modify line 76-92
+(2) Modify line 80-95
 ```
 
-### 2. Uncomment BinaryField test (if not using PyMySQL)
-Reason for disable BinaryField test by default:
+### 2. Create a test database by using docker
+```
+docker run -d -e MYSQL_ROOT_PASSWORD=eavictor -e MYSQL_DATABASE=DJANGO_BACKEND_TEST -e MYSQL_USER=eavictor -e MYSQL_PASSWORD=mysql_password -p 3306:3306 mariadb:latest
+```
 
 [Duplicate keyword '_binary' failure when using BinaryField in Django](https://github.com/PyMySQL/PyMySQL/issues/549)
 
 ### 3. Install required packages (Django, PyMySQL, pillow)
 ```
-sudo pip3 --no-cache-dir install -Ur requirements.txt
+sudo pip3 install -Ur requirements.txt --no-cache-dir
 ```
 
 ### 4. Run test
@@ -33,6 +35,7 @@ NullBooleanField
 Number
 ```
 IntegerField
+BigIntegerField
 FloatField
 DecimalField
 ```
@@ -53,7 +56,7 @@ FileField
 FilePathField
 ImageField
 ```
-Binary object (ignored by default)
+Binary object
 ```
 BinaryField
 ```

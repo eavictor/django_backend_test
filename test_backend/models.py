@@ -16,6 +16,10 @@ class ModelInteger(models.Model):
     value = models.IntegerField()
 
 
+class ModelBigInteger(models.Model):
+    value = models.BigIntegerField()
+
+
 class ModelFloat(models.Model):
     value = models.FloatField()
 
