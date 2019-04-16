@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django_backend_test.settings import BASE_DIR
 from test_backend.models import \
+    ModelBigAutoField,\
     ModelBoolean,\
     ModelNullBoolean,\
     ModelInteger,\
@@ -23,6 +24,15 @@ from test_backend.models import \
 
 
 # Create your tests here.
+class BigAutoFieldTestCase(TestCase):
+    def setUp(self):
+        big_auto_field = ModelBigAutoField.objects.create()
+        self.id = big_auto_field.id
+
+    def test_big_auto_field_1_query(self):
+        self.assertEquals(ModelBigAutoField.objects.get(id=self.id).id, self.id)
+
+
 class BooleanFieldTestCase(TestCase):
     def setUp(self):
         _boolean = ModelBoolean.objects.create(value=True)

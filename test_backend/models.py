@@ -4,6 +4,10 @@ from django_backend_test.settings import BASE_DIR
 
 
 # Create your models here.
+class ModelBigAutoField(models.Model):
+    id = models.BigAutoField(primary_key=True)
+
+
 class ModelBoolean(models.Model):
     value = models.BooleanField()
 
