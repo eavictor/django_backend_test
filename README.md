@@ -14,9 +14,12 @@ docker run -d -e MYSQL_ROOT_PASSWORD=eavictor -e MYSQL_DATABASE=DJANGO_BACKEND_T
 
 [Duplicate keyword '_binary' failure when using BinaryField in Django](https://github.com/PyMySQL/PyMySQL/issues/549)
 
-### 3. Install required packages (Django, PyMySQL, pillow)
+### 3. Install required packages (Django, PyMySQL/MySQLClient, pillow)
 ```
-sudo pip3 install -Ur requirements.txt --no-cache-dir
+sudo pip3 install -Ur req_pymysql.txt --no-cache-dir
+```
+```
+sudo pip3 install -Ur req_mysqlclient.txt --no-cache-dir
 ```
 
 ### 4. Run test
