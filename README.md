@@ -27,6 +27,9 @@ sudo pip3 install -Ur req_mysqlclient.txt --no-cache-dir
 ```
 
 ### 4. Create Database migration
+```
+python3 manage.py makemigrations
+```
 
 ### 5. Run test
 ```
