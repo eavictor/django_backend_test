@@ -15,7 +15,7 @@ WIP) [Compatibility with Django 2.2](https://github.com/PyMySQL/PyMySQL/issues/7
 
 ### 2. Create test database server (using Docker)
 ```
-docker run -d -e MYSQL_ROOT_PASSWORD=eavictor -e MYSQL_DATABASE=DJANGO_BACKEND_TEST -e MYSQL_USER=eavictor -e MYSQL_PASSWORD=mysql_password -p 3306:3306 mariadb:latest
+docker run -d -e MYSQL_ROOT_PASSWORD=eavictor -e MYSQL_DATABASE=DJANGO_BACKEND_TEST -e MYSQL_USER=eavictor -e MYSQL_PASSWORD=mysql_password -p 3306:3306 mariadb:latest --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max_connect_errors=4294967695 --expire_logs_days=1
 ```
 
 ### 3. Install required packages (Django, PyMySQL/MySQLClient, pillow)
@@ -38,7 +38,13 @@ python3 manage.py test
 It will create a test database automatically, then delete it after all tests are complete.
 
 
-### List of tested fields:
+### List of test fields:
+Auto Increment
+```
+AutoField  # default in models, no need to write this test case
+BigAutoField
+```
+
 Boolean
 ```
 BooleanField
